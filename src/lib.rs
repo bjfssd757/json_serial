@@ -1,3 +1,5 @@
+// Tests in start in 58 line
+
 pub trait ToJson {
     fn to_json(&self) -> String;
 }
@@ -64,31 +66,30 @@ mod tests {
             name: String,
             age: u8,
             address: String,
-        }
+        } // as example for struct
         #[derive(Debug)]
         struct Address {
             city: String,
             street: String,
             number: u16,
-        }
+        } // as example for struct
 
         impl_to_json!(Address, city, street, number);
-
         impl_to_json!(Person, name, age, address);
 
         let address = Address {
             city: "Moscow".to_string(),
-            street: "Gorky Street".to_string(),
+            street: "Gorky Park".to_string(),
             number: 42,
-        };
+        }; // as example for values in struct
         let person = Person {
             name: "Bob".to_string(),
             age: 30,
             address: "address".to_string(),
-        };
+        }; // as example for values in struct
 
         assert_eq!(person.to_json(), "{\"name\": \"Bob\", \"age\": 30, \"address\": \"address\"}");
-        assert_eq!(address.to_json(), "{\"city\": \"Moscow\", \"street\": \"Gorky Street\", \"number\": 42}");
+        assert_eq!(address.to_json(), "{\"city\": \"Moscow\", \"street\": \"Gorky Park\", \"number\": 42}");
     }
 
     #[test]
@@ -114,7 +115,7 @@ mod tests {
 
         let address = Address {
             city: "Moscow".to_string(),
-            street: "Gorky Street".to_string(),
+            street: "Gorky Park".to_string(),
             number: 42,
         };
         let person = Person {
@@ -131,5 +132,6 @@ mod tests {
 
         assert_eq!(struct_person.name, "Bob");
         assert_eq!(struct_address.city, "Moscow");
+        assert_eq!(struct_person.age, 30);
     }
 }

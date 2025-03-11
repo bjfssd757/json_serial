@@ -1,9 +1,10 @@
 [package]
 name = "json_serial"
 version = "0.1.0"
-authors = ["bjfssd"]
+edition = "2024"
+authors = ["bjfssd757"]
 description = "This library will help you work with Json format"
 license = "Apache-2.0"
-repository = 
+repository = "https://github.com/bjfssd757/json_serial"
 
 [dependencies]
