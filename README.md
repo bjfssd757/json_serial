@@ -1,7 +1,7 @@
-# json_serial
+# json_serial #
 This library will help you work with Json format in Rust
 
-## Documentation
+## Documentation ##
 
 > [!WARNING]
 > This library is in early development stage. Be careful when using it and stay turned for updates!
@@ -9,7 +9,7 @@ This library will help you work with Json format in Rust
 [Serialize into json](#Serialize)\
 [Deserialize from json](#Deserialize)
 
-### Serialize
+### Serialize ###
 
 > [!WARNING]
 > All structures require ```#[derive(Debug)]```
@@ -46,9 +46,50 @@ struct Address {
 	number: u16,
 }
 ``` 
-Then you can apply the ```.to_json()``` function to the structure with the values.
+Then you can apply the ```.to_json()``` function to the structure with the values:
+```Rust
+#[derive(Debug)]
+struct Person {
+	name: String,
+	age: u8,
+	address: String,
+}
+#[derive(Debug)]
+struct Address {
+	city: String,
+	street: String,
+	number: u16,
+}
 
-### Deserialize
+let address = Address {
+    city: "City".to_string(),
+    street: "Street".to_string(),
+    number: 1,
+}; // as example for values in struct
+let person = Person {
+    name: "Bob".to_string(),
+    age: 30,
+    address: "address".to_string(),
+}; // as example for values in struct
+
+let json = person.to_json();
+
+println!("{:?}", json); // output: "{\"name\": \"Bob\", \"age\": 30, \"address\": \"address\"}"
+```
+
+> [!NOTE]
+> This library doesn't work with "struct in struct":
+> ```Rust
+> struct Person {
+> 	address: Address,
+> }
+> struct Address {
+> 	street: String,
+> }
+> ```
+> This will NOT work! while you see this!
+
+### Deserialize ###
 
 > [!WARNING]
 > All structures require ```#[derive(Debug)]```
@@ -109,3 +150,15 @@ impl_from_json!(Person, name: String, age: u8, address: String);
 
 let without_json = Person::from_json(&json);
 ```
+
+> [!NOTE]
+> This library doesn't work with "struct in struct":
+> ```Rust
+> struct Person {
+> 	address: Address,
+> }
+> struct Address {
+> 	street: String,
+> }
+> ```
+> This will NOT work! while you see this!
