@@ -5,8 +5,8 @@ This library will help you work with Json format in Rust
 
 
 [Serialize into json](#Serialize)\
-[Deserialize from json](#Deserialize)
-[Possibilities](#Possibilities)
+[Deserialize from json](#Deserialize)\
+[Possibilities](#Possibilities)\
 [Features](#Features)
 
 
