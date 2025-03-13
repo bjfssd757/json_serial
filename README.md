@@ -22,7 +22,8 @@ This library will help you work with Json format in Rust
 ## Features ##
 
 * Adding the ability to serialize and deserialize nested structures;
-* Support for custom data types
+* Support for custom data types;
+* Adding attributes instead of macros to simplify code
 
 
 ## Documentation ##
