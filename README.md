@@ -3,13 +3,32 @@
 # json_serial #
 This library will help you work with Json format in Rust
 
+
+[Serialize into json](#Serialize)\
+[Deserialize from json](#Deserialize)
+[Possibilities](#Possibilities)
+[Features](#Features)
+
+
+## Possibilities ##
+
+> [!NOTE]
+> This section will be updated as new features appear
+
+* Serialization of structure with standard data types to json;
+* Deserialize json into structure with standard data types
+
+
+## Features ##
+
+* Adding the ability to serialize and deserialize nested structures;
+* Support for custom data types
+
+
 ## Documentation ##
 
 > [!WARNING]
 > This library is in early development stage. Be careful when using it and stay turned for updates!
-
-[Serialize into json](#Serialize)\
-[Deserialize from json](#Deserialize)
 
 ### Serialize ###
 
